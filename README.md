@@ -1,1 +1,1 @@
-Dashboar_Cuaca
+Dashboard Cuaca
