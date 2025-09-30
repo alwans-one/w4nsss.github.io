@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather Dashboard - Check current weather and forecasts">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☀️ Weather Dashboard</h1>
+            <div class="controls">
+                <button class="toggle-btn" id="themeToggle" aria-label="Toggle theme">🌙 Dark</button>
+                <button class="toggle-btn" id="unitToggle" aria-label="Toggle temperature unit">°F</button>
+                <button class="toggle-btn" id="locationBtn" aria-label="Get current location">📍 My Location</button>
+            </div>
+        </header>
+
+        <div class="error-message" id="errorMessage" role="alert"></div>
+
+        <section class="search-section">
+            <h2>Search Location</h2>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="searchInput" 
+                    placeholder="Search for a city..."
+                    autocomplete="off"
+                    aria-label="Search for city"
+                >
+                <div class="suggestions" id="suggestions" role="listbox"></div>
+            </div>
+            <div class="recent-searches" id="recentSearches"></div>
+        </section>
+
+        <div id="loadingState" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <section class="current-weather" id="currentWeather" style="display: none;">
+            <div class="weather-main">
+                <div class="weather-icon" id="weatherIcon">☀️</div>
+                <div class="weather-info">
+                    <h2 id="temperature">--°</h2>
+                    <p id="condition">Loading...</p>
+                    <p id="location">--</p>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="detail-item">
+                    <div class="detail-label">Feels Like</div>
+                    <div class="detail-value" id="feelsLike">--°</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Humidity</div>
+                    <div class="detail-value" id="humidity">--%</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Wind Speed</div>
+                    <div class="detail-value" id="windSpeed">-- km/h</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Pressure</div>
+                    <div class="detail-value" id="pressure">-- hPa</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Visibility</div>
+                    <div class="detail-value" id="visibility">-- km</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">UV Index</div>
+                    <div class="detail-value" id="uvIndex">--</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Sunrise</div>
+                    <div class="detail-value" id="sunrise">--:--</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Sunset</div>
+                    <div class="detail-value" id="sunset">--:--</div>
+                </div>
+            </div>
+            <button class="add-favorite" id="addFavorite">⭐ Add to Favorites</button>
+        </section>
+
+        <section class="hourly-forecast" id="hourlyForecast" style="display: none;">
+            <h3 class="forecast-title">Hourly Forecast</h3>
+            <div class="hourly-grid" id="hourlyGrid"></div>
+        </section>
+
+        <section class="forecast-section" id="forecastSection" style="display: none;">
+            <h3 class="forecast-title">5-Day Forecast</h3>
+            <div class="forecast-grid" id="forecastGrid"></div>
+        </section>
+
+        <section class="favorites-section">
+            <h3 class="forecast-title">Favorite Locations</h3>
+            <div class="favorites-grid" id="favoritesGrid">
+                <p style="color: var(--text-secondary)">No favorites added yet</p>
+            </div>
+        </section>
+
+        <section class="comparison-section" id="comparisonSection" style="display: none;">
+            <h3 class="forecast-title">Compare Cities</h3>
+            <div class="comparison-grid" id="comparisonGrid"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
